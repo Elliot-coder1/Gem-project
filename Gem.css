@@ -156,39 +156,104 @@ body {
     border: 2px solid var(--hover-color);
 }
 
+
+
 .bottom-nav {
-    background-color: #1a202c;
-    color: white;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #1a202c; /* Dark background color */
+    padding: 16px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
-
 .bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 .bottom-nav li {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.bottom-nav a {
-    color: white;
-    text-decoration: none;
-}
-
 .bottom-nav i {
-    font-size: 24px;
+    font-size: 24px; /* Icon size */
+}
+.bottom-nav span {
+    margin-top: 4px;
+    font-size: 14px; /* Text size */
 }
 
-.bottom-nav span {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-}
+@media only screen and (max-width: 767px) {
+    .navbar .logo .connect-wallet{
+        display: block;
+    }
+  
+    .navbar .nav-links {
+      display: none;
+    }
+    .navbar .right-nav .search-btn {
+      display: none;
+    }
+    .bottom-nav {
+      transition: bottom 0.5s; /* Add a transition effect */
+    }
+    .bottom-nav.show {
+      bottom: 0; /* Show the bottom nav when the class is added */
+    }
+    .bottom-nav ul {
+      list-style: none; /* Remove list styling */
+      padding: 0; /* Remove padding */
+      margin: 0; /* Remove margin */
+    }
+    .bottom-nav li {
+      text-align: center; /* Center the text */
+    }
+    .bottom-nav a {
+      font-size: 16px; /* Increase the font size for better readability */
+    }
+    .bottom-nav i {
+      font-size: 20px; /* Increase the icon size for better readability */
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .navbar .logo .connect-wallet{
+        display: block;
+    }
+  
+    .navbar .nav-links {
+      display: none;
+    }
+    .navbar .right-nav .search-btn {
+      display: none;
+    }
+    .bottom-nav {
+      transition: bottom 0.5s; /* Add a transition effect */
+    }
+    .bottom-nav.show {
+      bottom: 0; /* Show the bottom nav when the class is added */
+    }
+    .bottom-nav ul {
+      list-style: none; /* Remove list styling */
+      padding: 0; /* Remove padding */
+      margin: 0; /* Remove margin */
+    }
+    .bottom-nav li {
+      text-align: center; /* Center the text */
+    }
+    .bottom-nav a {
+      font-size: 18px; /* Increase the font size for better readability */
+    }
+    .bottom-nav i {
+      font-size: 24px; /* Increase the icon size for better readability */
+    }
+  }
+  @media only screen and (min-width: 1024px) {
+    .bottom-nav {
+      display: none;
+    }
+  }
+  
