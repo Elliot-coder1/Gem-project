@@ -9,6 +9,7 @@ body {
     --primary-color:#fff;
     --secondary-color:#1a202c;
     --hover-color:#10ea6b;
+    --background-color: #2a4365;
 }
 
 .navbar {
@@ -22,49 +23,46 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .left, .navbar .right {
+.navbar .logo {
+    height: 40px;
+    margin-right: 16px;
+    margin-left: 100px;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.navbar .left img {
-    height: 32px;
-    margin-right: 8px;
+.navbar .logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
-
-.navbar .left span {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-right: 20px;
-}
-
-.navbar .left ul {
+.navbar .nav-links {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    margin-right: 600px;
+    gap: 10px;
 }
 
-.navbar .left ul li {
+.navbar .nav-links .nav-item {
     margin-right: 16px;
     position: relative;
 }
 
-.navbar .left ul li a {
+.navbar .nav-links .nav-item .nav-link {
     color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s;
     position: relative;
 }
 
-.navbar .left ul li a:hover {
-    color: var(--hover-color);
-}
-
-.navbar .left ul li a::after {
+.navbar .nav-links .nav-item::after {
     content: '';
     position: absolute;
-    bottom: -17px;
+    bottom: -20px;
     left: 0;
     width: 100%;
     height: 2px;
@@ -73,12 +71,59 @@ body {
     transition: transform 0.3s;
 }
 
-.navbar .left ul li a:hover::after {
+.navbar .nav-links .nav-item:hover::after {
     transform: scaleX(1);
 }
 
+.navbar .nav-links .nav-item:hover .nav-link {
+    color: var(--hover-color);
+}
 
-.navbar .right .search-btn {
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--background-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: none;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--hover-color);
+}
+
+.dropdown-menu li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #3b4d64;
+    list-style: none;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--hover-color);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar .right-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .right-nav .search-btn {
     background-color: #2d3748;
     border: none;
     border-radius: 50%;
@@ -91,11 +136,11 @@ body {
     cursor: pointer;
 }
 
-.navbar .right .search-btn i {
+.navbar .right-nav .search-btn i {
     color: var(--primary-color);
 }
 
-.navbar .right .connect-wallet {
+.navbar .right-nav .connect-wallet {
     background-color: var(--hover-color);
     border: none;
     font-weight: bold;
@@ -105,50 +150,45 @@ body {
     cursor: pointer;
 }
 
-.navbar .right .connect-wallet:hover {
+.navbar .right-nav .connect-wallet:hover {
     background-color: var(--secondary-color);
     color: var(--hover-color);
     border: 2px solid var(--hover-color);
 }
 
-.menu {
-    background-color: #2a4365; /* bg-blue-900 */
+.bottom-nav {
+    background-color: #1a202c;
     color: white;
-    border-radius: 0.5rem; /* rounded-lg */
-    border: 1px solid #38a169; /* border-green-500 */
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-.menu ul {
+
+.bottom-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.menu ul li {
-    padding: 0.5rem 1rem; /* px-4 py-2 */
-    border-bottom: 1px solid #2c5282; /* border-blue-800 */
+
+.bottom-nav li {
+    margin-bottom: 20px;
 }
-.menu ul li:last-child {
-    border-bottom: none;
-}
-.menu ul li a {
-    color: var(--primary-color);
+
+.bottom-nav a {
+    color: white;
     text-decoration: none;
-    transition: color 0.3s;
-    position: relative;
 }
-.menu ul li a:hover {
-    color: var(--hover-color);
+
+.bottom-nav i {
+    font-size: 24px;
 }
-.menu ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -17px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--hover-color);
-    transform: scaleX(0);
-    transition: transform 0.3s;
-}
-.menu ul li a:hover::after {
-    transform: scaleX(1);
+
+.bottom-nav span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
 }
